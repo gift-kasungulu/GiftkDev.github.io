@@ -260,6 +260,80 @@
             position: relative;
             top: 0;
         }
+
+
+        .gallery {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 220px;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    opacity: 0;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.gallery-overlay h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.gallery-overlay p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
         
         .project-card:hover {
             transform: translateY(-10px);
@@ -594,6 +668,7 @@
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
+                <a href="#gallery">Gallery</a>
                 <a href="#contact">Contact</a>
             </div>
             <div class="burger">
@@ -633,16 +708,20 @@
                     <li>C++</li>
                     <li>Java</li>
                     <li>PHP</li>
-                    <li>ASP.Net</li>
                     <li>HTML/CSS</li>
                     <li>SQL</li>
                     <li>JavaScript</li>
                     <li>Blazor</li>
                     <li>Visual Basics</li>
+                    <li>Restful Api Integration</li>
+                    <li>HttpClient API Handling </li>
+                    <li>MoMo Api</li>
+                    <li>Stripe Subscriptions</li>
+                    <li>PayPal</li>
                 </ul>
             </div>
             <div class="skill-category">
-                <h3>Technologies</h3>
+                <h3>Technologies & Frameworks</h3>
                 <ul class="skill-list">
                     <li>SQL Server</li>
                     <li>MySQL</li>
@@ -650,6 +729,8 @@
                     <li>Git</li>
                     <li>Entity Framework</li>
                     <li>Azure App Services</li>
+                    <li>PostMan</li>
+                    
                 </ul>
             </div>
             <div class="skill-category">
@@ -763,6 +844,79 @@
                     <h3>DesignTech Dev Services</h3>
                     <p>A showcase website highlighting our development services and expertise in creating custom software solutions across various industries.</p>
                     <a href="https://gift-kasungulu.github.io/dTECh.github.io/" class="btn">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery animate-on-scroll">
+        <h2 class="section-title">Project Showcase</h2>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="/images/Voter Login.jpeg" alt="Lets Vote" class="gallery-image">
+                <div class="gallery-overlay">
+                    <h3>E-Voting System (Lets Vote)</h3>
+                    <p>Secure electronic voting platform with authentication</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/images/Voter Loged in.jpeg" alt="Lets Vote" class="gallery-image">
+                <div class="gallery-overlay">
+                    <h3>E-Voting System (Lets Vote)</h3>
+                    <p>Voter Loged In</p>
+                    
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/images/Voting page.jpeg" alt="Lets Vote" class="gallery-image">
+                <div class="gallery-overlay">
+                    <h3>E-Voting System (Lets Vote)</h3>
+                    <p>Voting page</p>
+                </div>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="/images/login Page.jpeg" alt="Credit Care Software" class="gallery-image">
+                <div class="gallery-overlay">
+                    <h3>Credit-Care Software</h3>
+                    <p>Comprehensive loan management system</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/images/loan details.jpeg" alt="Credit Care" class="gallery-image">
+                <div class="gallery-overlay">
+                    <h3>Credit-Care Software</h3>
+                    <p>Comprehensive loan management system</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/images/Statements.jpeg" alt="Inventory Management System Screenshot" class="gallery-image">
+                <div class="gallery-overlay">
+                    <h3>Credit-Care Software</h3>
+                    <p>Comprehensive loan management system</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/images/Legal Login.jpeg" alt="Legal Case Management" class="gallery-image">
+                <div class="gallery-overlay">
+                    <h3>Legal Case Management</h3>
+                    <p>Comprehensive Legal Case Management</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/images/Legal Dash.jpeg" alt="Legal Case Management" class="gallery-image">
+                <div class="gallery-overlay">
+                    <h3>Legal Case Management</h3>
+                    <p>Comprehensive Legal Case Management</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/images/Cases.jpeg" alt="Legal Case Management" class="gallery-image">
+                <div class="gallery-overlay">
+                    <h3>Legal Case Management</h3>
+                    <p>Comprehensive Legal Case Management</p>
                 </div>
             </div>
         </div>
