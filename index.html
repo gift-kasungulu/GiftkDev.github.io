@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Gift Kasungulu | Full Stack Developer & Designer</title>
+    <title>Gift Kasungulu | IT Support Technician & Software Developer</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Gift Kasungulu - Full Stack Developer specializing in C#, .NET, SQL Server, and Graphic Design" />
+    <meta name="description" content="Gift Kasungulu - IT Support Technician and Software Developer based in Kitwe, Zambia. Networking, systems administration, Microsoft 365, C#, .NET and SQL Server" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
@@ -543,6 +543,38 @@
             padding: 2rem;
         }
         
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #25D366;
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .whatsapp-float i {
+            font-size: 1.6rem;
+        }
+
+        .whatsapp-float:hover {
+            background: #1ebe5b;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-float span { display: none; }
+            .whatsapp-float { padding: 0.9rem; left: 1rem; bottom: 1rem; }
+        }
+
         .back-to-top {
             position: fixed;
             bottom: 2rem;
@@ -685,15 +717,15 @@
                 <img src="images/me.jpg" alt="Gift Kasungulu" class="profile-image">
             </div>
             <h1>Gift Kasungulu</h1>
-            <p class="tagline">Full Stack Developer & Creative Designer</p>
-            <p>Specializing in C#, .NET, SQL, and Graphic Design. I create elegant solutions that combine technical excellence with creative innovation.</p>
+            <p class="tagline">IT Support Technician & Software Developer</p>
+            <p>Hands-on IT support, networking and systems administration, backed by software development in C#, .NET and SQL. I keep systems, networks and people connected and productive.</p>
         </div>
     </section>
 
     <section id="about" class="projects animate-on-scroll">
         <h2 class="section-title">About Me</h2>
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <p>I am a highly motivated and collaborative individual with high interest in software development, IT support, customer service and graphic designing. I have a passion for Technology and innovation as well as staying updated with the latest industry trends, consistently seeking ways to integrate new cutting-edge solutions into my work. With a creative mindset and technical expertise, I craft innovative digital experiences that captivate and engage.</p>
+            <p>I am an IT Support Technician with a BSc in Information Systems from the Copperbelt University. At Progress Medical Center in Kitwe, I support the Hospital Management System, manage the servers for three hospital branches, and troubleshoot network, hardware and printer issues. I also helped set up the IT infrastructure for the hospital's new facility, including Wi-Fi, Starlink connectivity, VPN, CCTV, backups, Odoo and an IT asset register. My software engineering background lets me build, support and document the systems I look after, and I enjoy explaining technology clearly to non-technical users.</p>
             <p style="margin-top: 1rem;"><strong>Languages:</strong> English, Nyanja, Bemba, Lozi</p>
         </div>
     </section>
@@ -701,6 +733,19 @@
     <section id="skills" class="skills animate-on-scroll">
         <h2 class="section-title">My Skills</h2>
         <div class="skills-grid">
+<div class="skill-category">
+<h3>IT Support &amp; Infrastructure</h3>
+<ul class="skill-list">
+<li>Windows &amp; Hardware Troubleshooting</li>
+<li>LAN/WAN, Wi-Fi, VPN &amp; Starlink</li>
+<li>Active Directory &amp; Windows Server</li>
+<li>Microsoft 365</li>
+<li>CCTV / IP Camera Systems</li>
+<li>Data Backups</li>
+<li>Odoo (ERP)</li>
+<li>IT Asset Management</li>
+</ul>
+</div>
             <div class="skill-category">
                 <h3>Programming</h3>
                 <ul class="skill-list">
@@ -712,7 +757,7 @@
                     <li>SQL</li>
                     <li>JavaScript</li>
                     <li>Blazor</li>
-                    <li>Visual Basics</li>
+                    <li>Visual Basic</li>
                   
                 </ul>
             </div>
@@ -755,9 +800,15 @@
     <section id="projects" class="projects animate-on-scroll">
         <h2 class="section-title">Featured Projects</h2>
         <div class="project-grid">
+<div class="project-card">
+<div class="project-content">
+<h3>New Hospital Facility IT Infrastructure</h3>
+<p>Set up the IT infrastructure for Progress Medical Center's new facility: Wi-Fi network, Starlink internet connectivity, VPN / remote access, CCTV, data backups, Odoo and an IT asset register.</p>
+</div>
+</div>
             <div class="project-card">
                 <div class="project-content">
-                    <h3>Progress medial centre website development</h3>
+                    <h3>Progress Medical Center Website</h3>
                     <p>Developed and designed the company website for Progress Medical Centre</p>
                     <a href="https://www.progressmedical.center/" class="btn">View Project</a>
                 </div>
@@ -938,7 +989,7 @@
     <section id="contact" class="contact animate-on-scroll">
         <div class="contact-container">
             <h2 class="section-title">Get in Touch</h2>
-            <form class="contact-form">
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
@@ -951,7 +1002,9 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
                 <button type="submit" class="btn">Send Message</button>
+                <p id="formStatus" role="status" style="text-align:center; font-weight:500;"></p>
             </form>
 
             <div class="social-links">
@@ -962,12 +1015,16 @@
 
             <div class="contact-info">
                 <p><i class="fas fa-phone"></i> <a href="tel:+260972589204">+260 972 589 204</a> | <a href="tel:+260764000886">+260 764 000 886</a></p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:GiftKasungulu@outlook.com">GiftKasungulu@outlook.com</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/260764000886?text=Hello%20Gift%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20get%20in%20touch." target="_blank" rel="noopener">Message me on WhatsApp</a></p>
                 <p><i class="fas fa-envelope"></i> <a href="mailto:kasungulugift30@gmail.com">kasungulugift30@gmail.com</a></p>
-                <p><i class="fas fa-map-marker-alt"></i> Lusaka, Zambia</p>
+                <p><i class="fas fa-map-marker-alt"></i> Kitwe, Zambia</p>
             </div>
         </div>
     </section>
+
+    <a href="https://wa.me/260764000886?text=Hello%20Gift%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20get%20in%20touch." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with Gift on WhatsApp">
+        <i class="fab fa-whatsapp"></i><span>Chat on WhatsApp</span>
+    </a>
 
     <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></a>
 
@@ -994,6 +1051,35 @@
             });
         });
         
+        // Contact form: send to email via Formspree
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            formStatus.style.color = '#2c3e50';
+            formStatus.textContent = 'Sending...';
+            try {
+                const res = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    formStatus.style.color = '#27ae60';
+                    formStatus.textContent = 'Thank you! Your message has been sent. I will get back to you soon.';
+                    contactForm.reset();
+                } else {
+                    throw new Error('Request failed');
+                }
+            } catch (err) {
+                formStatus.style.color = '#e74c3c';
+                formStatus.textContent = 'Sorry, something went wrong. Please email me at kasungulugift30@gmail.com.';
+            }
+            btn.disabled = false;
+        });
+
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
