@@ -262,77 +262,366 @@
         }
 
 
+        /* ===== Hero buttons and availability ===== */
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.35);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            animation: fadeInUp 1s 0.9s both;
+        }
+
+        .availability i {
+            color: #2ecc71;
+            font-size: 0.6rem;
+            animation: pulseDot 1.8s infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.5); }
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            animation: fadeInUp 1s 1.1s both;
+        }
+
+        .btn.btn-light {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn.btn-light:hover {
+            background: var(--light-bg);
+            color: var(--secondary-color);
+        }
+
+        .btn.btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn.btn-outline:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* ===== Experience timeline ===== */
+        .experience {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 8px;
+            bottom: 8px;
+            width: 3px;
+            background: linear-gradient(var(--secondary-color), #cfd6de);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 1.7rem;
+            width: 21px;
+            height: 21px;
+            background: white;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+        }
+
+        .timeline-item.current::before {
+            background: var(--secondary-color);
+            box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.25);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            letter-spacing: 0.03em;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+        }
+
+        .timeline-org {
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .timeline-item ul {
+            padding-left: 1.2rem;
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.4rem;
+            color: #555;
+        }
+
+        .experience-cta {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .experience { padding: 0 1rem; }
+            .timeline { padding-left: 2rem; }
+            .timeline-item { padding: 1.2rem; }
+            .timeline-item::before { left: -2rem; }
+        }
+
+        /* ===== Project showcase slideshow ===== */
         .gallery {
-    max-width: 1200px;
-    margin: 4rem auto;
-    padding: 0 2rem;
-}
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
 
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
+        .slideshow {
+            position: relative;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
 
-.gallery-item {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    height: 220px;
-}
+        .slides-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+            will-change: transform;
+        }
 
-.gallery-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-}
+        .slide {
+            min-width: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
 
-.gallery-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
+        .slide-media {
+            height: 480px;
+            background: #1b2533;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: zoom-in;
+        }
 
-.gallery-item:hover .gallery-image {
-    transform: scale(1.1);
-}
+        .slide-media img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            opacity: 0.3;
+            transform: scale(1.08);
+            transition: opacity 1s ease, transform 1.4s ease;
+        }
 
-.gallery-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    padding: 1rem;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-    opacity: 0;
-}
+        .slide.active .slide-media img {
+            opacity: 1;
+            transform: scale(1);
+        }
 
-.gallery-item:hover .gallery-overlay {
-    transform: translateY(0);
-    opacity: 1;
-}
+        .slide figcaption {
+            padding: 1.5rem 2rem 2.2rem;
+            text-align: center;
+        }
 
-.gallery-overlay h3 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.2rem;
-}
+        .slide figcaption > * {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
 
-.gallery-overlay p {
-    margin: 0;
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
+        .slide.active figcaption > * { opacity: 1; transform: translateY(0); }
+        .slide.active figcaption > *:nth-child(1) { transition-delay: 0.35s; }
+        .slide.active figcaption > *:nth-child(2) { transition-delay: 0.5s; }
+        .slide.active figcaption > *:nth-child(3) { transition-delay: 0.65s; }
 
-@media (max-width: 768px) {
-    .gallery-container {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-}
+        .slide-tag {
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.12);
+            color: var(--secondary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.9rem;
+            border-radius: 50px;
+            margin-bottom: 0.7rem;
+        }
+
+        .slide figcaption h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .slide figcaption p {
+            color: #666;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .slide-btn {
+            position: absolute;
+            top: 240px;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+
+        .slide-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slide-btn.prev { left: 1rem; }
+        .slide-btn.next { right: 1rem; }
+
+        .slide-counter {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 0.85rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            z-index: 5;
+        }
+
+        .slide-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0 1rem 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .slide-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background: #cfd6de;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .slide-dot.active {
+            background: var(--secondary-color);
+            width: 32px;
+            border-radius: 12px;
+        }
+
+        .slide-progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 4px;
+            width: 0;
+            background: var(--secondary-color);
+            z-index: 6;
+        }
+
+        .slide-progress.run { animation: slideProgress 5s linear forwards; }
+        .slideshow.paused .slide-progress { animation-play-state: paused; }
+
+        @keyframes slideProgress {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            cursor: zoom-out;
+            padding: 1rem;
+        }
+
+        .lightbox.open { display: flex; animation: lightboxIn 0.3s ease; }
+        .lightbox img { max-width: 96vw; max-height: 92vh; object-fit: contain; border-radius: 6px; }
+
+        @keyframes lightboxIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .gallery { padding: 0 1rem; }
+            .slide-media { height: 260px; }
+            .slide-btn { top: 130px; width: 40px; height: 40px; }
+            .slide figcaption { padding: 1.2rem 1.2rem 1.6rem; }
+            .slide figcaption h3 { font-size: 1.25rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .slides-track, .slide-media img, .slide figcaption > * { transition: none; }
+            .slide-progress.run { animation: none; }
+        }
 
         
         .project-card:hover {
@@ -698,6 +987,7 @@
             <a href="#" class="logo">Gift Kasungulu</a>
             <div class="nav-links">
                 <a href="#about">About</a>
+                <a href="#experience">Experience</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
                 <a href="#gallery">Gallery</a>
@@ -719,6 +1009,11 @@
             <h1>Gift Kasungulu</h1>
             <p class="tagline">IT Support Technician & Software Developer</p>
             <p>Hands-on IT support, networking and systems administration, backed by software development in C#, .NET and SQL. I keep systems, networks and people connected and productive.</p>
+            <div class="availability"><i class="fas fa-circle"></i> Open to IT Officer &amp; IT Support roles &middot; Kitwe, Zambia</div>
+            <div class="hero-actions">
+                <a href="Gift-Kasungulu-CV.pdf" download="Gift-Kasungulu-CV.pdf" class="btn btn-light"><i class="fas fa-download"></i> Download CV</a>
+                <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+            </div>
         </div>
     </section>
 
@@ -727,6 +1022,60 @@
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
             <p>I am an IT Support Technician with a BSc in Information Systems from the Copperbelt University. At Progress Medical Center in Kitwe, I support the Hospital Management System, manage the servers for three hospital branches, and troubleshoot network, hardware and printer issues. I also helped set up the IT infrastructure for the hospital's new facility, including Wi-Fi, Starlink connectivity, VPN, CCTV, backups, Odoo and an IT asset register. My software engineering background lets me build, support and document the systems I look after, and I enjoy explaining technology clearly to non-technical users.</p>
             <p style="margin-top: 1rem;"><strong>Languages:</strong> English, Nyanja, Bemba, Lozi</p>
+        </div>
+    </section>
+
+    <section id="experience" class="experience animate-on-scroll">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item current">
+                <span class="timeline-date">July 2025 - Present</span>
+                <h3>IT Support Technician</h3>
+                <div class="timeline-org">Progress Medical Center, Kitwe</div>
+                <ul>
+                    <li>Provide daily support for the Hospital Management System (HMS): user assistance, error resolution and functionality checks.</li>
+                    <li>Manage the servers for all three hospital branches, keeping patient and hospital data up to date and available.</li>
+                    <li>Resolve network, hardware and printer issues, and keep stock records of toners and consumables.</li>
+                    <li>Set up the IT infrastructure for the new facility: Wi-Fi, Starlink connectivity, VPN, CCTV, backups, Odoo and an IT asset register.</li>
+                    <li>Redesigned and manage the company website.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">January 2024 - July 2025</span>
+                <h3>Software Engineer</h3>
+                <div class="timeline-org">Techroots Zambia, Lusaka</div>
+                <ul>
+                    <li>Worked across the full development lifecycle of web-based internal systems and EdTech platforms.</li>
+                    <li>Collaborated with cross-functional teams to deliver user-friendly solutions for educational institutions.</li>
+                    <li>Fixed bugs, improved performance and supported software releases.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">November 2024 - January 2025</span>
+                <h3>Data Specialist (Part-time)</h3>
+                <div class="timeline-org">Sesheke Town Council, Sesheke</div>
+                <ul>
+                    <li>Captured, cleaned and verified large datasets for the "Cash for Work" programme.</li>
+                    <li>Helped streamline manual record systems for better efficiency.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">September - December 2023</span>
+                <h3>Data Entry Clerk (Intern)</h3>
+                <div class="timeline-org">Higher Education Loans &amp; Scholarships Board, Lusaka</div>
+                <ul>
+                    <li>Entered and maintained over 4,000 student loan application records with a high level of accuracy.</li>
+                    <li>Supported verification processes that improved processing speed and reduced backlog.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">September 2020 - September 2024</span>
+                <h3>BSc in Information Systems</h3>
+                <div class="timeline-org">The Copperbelt University, Kitwe</div>
+            </div>
+        </div>
+        <div class="experience-cta">
+            <a href="Gift-Kasungulu-CV.pdf" download="Gift-Kasungulu-CV.pdf" class="btn"><i class="fas fa-download"></i> Download Full CV</a>
         </div>
     </section>
 
@@ -915,76 +1264,90 @@
 
     <section id="gallery" class="gallery animate-on-scroll">
         <h2 class="section-title">Project Showcase</h2>
-        <div class="gallery-container">
-            <div class="gallery-item">
-                <img src="images/Voter Login.jpeg" alt="Lets Vote" class="gallery-image">
-                <div class="gallery-overlay">
-                    <h3>E-Voting System (Lets Vote)</h3>
-                    <p>Secure electronic voting platform with authentication</p>
-                </div>
+        <div class="slideshow" id="slideshow" role="region" aria-roledescription="carousel" aria-label="Project screenshots" tabindex="0">
+            <div class="slide-progress" id="slideProgress"></div>
+            <div class="slide-counter" id="slideCounter">1 / 9</div>
+            <button class="slide-btn prev" id="slidePrev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+            <button class="slide-btn next" id="slideNext" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+            <div class="slides-track" id="slidesTrack">
+                <figure class="slide active" aria-roledescription="slide" aria-label="1 of 9">
+                    <div class="slide-media"><img src="images/Voter Login.jpeg" alt="E-Voting System (Lets Vote) - Voter Login" ></div>
+                    <figcaption>
+                        <span class="slide-tag">E-Voting System (Lets Vote)</span>
+                        <h3>Voter Login</h3>
+                        <p>Secure electronic voting platform with voter authentication before any vote can be cast.</p>
+                    </figcaption>
+                </figure>
+                <figure class="slide" aria-roledescription="slide" aria-label="2 of 9">
+                    <div class="slide-media"><img src="images/Voter Loged in.jpeg" alt="E-Voting System (Lets Vote) - Voter Logged In" loading="lazy"></div>
+                    <figcaption>
+                        <span class="slide-tag">E-Voting System (Lets Vote)</span>
+                        <h3>Voter Logged In</h3>
+                        <p>The voter view after a successful login.</p>
+                    </figcaption>
+                </figure>
+                <figure class="slide" aria-roledescription="slide" aria-label="3 of 9">
+                    <div class="slide-media"><img src="images/Voting page.jpeg" alt="E-Voting System (Lets Vote) - Voting Page" loading="lazy"></div>
+                    <figcaption>
+                        <span class="slide-tag">E-Voting System (Lets Vote)</span>
+                        <h3>Voting Page</h3>
+                        <p>Where an authenticated voter casts their vote.</p>
+                    </figcaption>
+                </figure>
+                <figure class="slide" aria-roledescription="slide" aria-label="4 of 9">
+                    <div class="slide-media"><img src="images/login Page.jpeg" alt="Credit-Care Software - Login Page" loading="lazy"></div>
+                    <figcaption>
+                        <span class="slide-tag">Credit-Care Software</span>
+                        <h3>Login Page</h3>
+                        <p>Secure sign-in to the comprehensive loan management system.</p>
+                    </figcaption>
+                </figure>
+                <figure class="slide" aria-roledescription="slide" aria-label="5 of 9">
+                    <div class="slide-media"><img src="images/loan details.jpeg" alt="Credit-Care Software - Loan Details" loading="lazy"></div>
+                    <figcaption>
+                        <span class="slide-tag">Credit-Care Software</span>
+                        <h3>Loan Details</h3>
+                        <p>Tracking loan applications, approvals, disbursements and repayments.</p>
+                    </figcaption>
+                </figure>
+                <figure class="slide" aria-roledescription="slide" aria-label="6 of 9">
+                    <div class="slide-media"><img src="images/Statements.jpeg" alt="Credit-Care Software - Statements" loading="lazy"></div>
+                    <figcaption>
+                        <span class="slide-tag">Credit-Care Software</span>
+                        <h3>Statements</h3>
+                        <p>Detailed statements and reports for loans and repayments.</p>
+                    </figcaption>
+                </figure>
+                <figure class="slide" aria-roledescription="slide" aria-label="7 of 9">
+                    <div class="slide-media"><img src="images/Legal Login.jpeg" alt="Legal Case Management System - Login Page" loading="lazy"></div>
+                    <figcaption>
+                        <span class="slide-tag">Legal Case Management System</span>
+                        <h3>Login Page</h3>
+                        <p>Secure access for law firms and legal departments.</p>
+                    </figcaption>
+                </figure>
+                <figure class="slide" aria-roledescription="slide" aria-label="8 of 9">
+                    <div class="slide-media"><img src="images/Legal Dash.jpeg" alt="Legal Case Management System - Dashboard" loading="lazy"></div>
+                    <figcaption>
+                        <span class="slide-tag">Legal Case Management System</span>
+                        <h3>Dashboard</h3>
+                        <p>An overview of cases to help legal teams stay organised.</p>
+                    </figcaption>
+                </figure>
+                <figure class="slide" aria-roledescription="slide" aria-label="9 of 9">
+                    <div class="slide-media"><img src="images/Cases.jpeg" alt="Legal Case Management System - Cases" loading="lazy"></div>
+                    <figcaption>
+                        <span class="slide-tag">Legal Case Management System</span>
+                        <h3>Cases</h3>
+                        <p>Managing and tracking cases in one place.</p>
+                    </figcaption>
+                </figure>
             </div>
-            <div class="gallery-item">
-                <img src="images/Voter Loged in.jpeg" alt="Lets Vote" class="gallery-image">
-                <div class="gallery-overlay">
-                    <h3>E-Voting System (Lets Vote)</h3>
-                    <p>Voter Loged In</p>
-                    
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/Voting page.jpeg" alt="Lets Vote" class="gallery-image">
-                <div class="gallery-overlay">
-                    <h3>E-Voting System (Lets Vote)</h3>
-                    <p>Voting page</p>
-                </div>
-            </div>
-
-
-            <div class="gallery-item">
-                <img src="images/login Page.jpeg" alt="Credit Care Software" class="gallery-image">
-                <div class="gallery-overlay">
-                    <h3>Credit-Care Software</h3>
-                    <p>Comprehensive loan management system</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/loan details.jpeg" alt="Credit Care" class="gallery-image">
-                <div class="gallery-overlay">
-                    <h3>Credit-Care Software</h3>
-                    <p>Comprehensive loan management system</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/Statements.jpeg" alt="Inventory Management System Screenshot" class="gallery-image">
-                <div class="gallery-overlay">
-                    <h3>Credit-Care Software</h3>
-                    <p>Comprehensive loan management system</p>
-                </div>
-            </div>
- 
-            <div class="gallery-item">
-                <img src="images/Legal Login.jpeg" alt="Legal Case Management" class="gallery-image">
-                <div class="gallery-overlay">
-                    <h3>Legal Case Management</h3>
-                    <p>Comprehensive Legal Case Management</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/Legal Dash.jpeg" alt="Legal Case Management" class="gallery-image">
-                <div class="gallery-overlay">
-                    <h3>Legal Case Management</h3>
-                    <p>Comprehensive Legal Case Management</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/Cases.jpeg" alt="Legal Case Management" class="gallery-image">
-                <div class="gallery-overlay">
-                    <h3>Legal Case Management</h3>
-                    <p>Comprehensive Legal Case Management</p>
-                </div>
-            </div>
+            <div class="slide-dots" id="slideDots"></div>
         </div>
     </section>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true"><img src="" alt=""></div>
 
     <section id="contact" class="contact animate-on-scroll">
         <div class="contact-container">
@@ -1079,6 +1442,86 @@
             }
             btn.disabled = false;
         });
+
+        // Project showcase slideshow
+        (function () {
+            const show = document.getElementById('slideshow');
+            const track = document.getElementById('slidesTrack');
+            const slides = Array.from(track.children);
+            const dotsWrap = document.getElementById('slideDots');
+            const counter = document.getElementById('slideCounter');
+            const progress = document.getElementById('slideProgress');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = lightbox.querySelector('img');
+            const DELAY = 5000;
+            let index = 0, timer = null, startX = null;
+
+            const dots = slides.map((_, i) => {
+                const d = document.createElement('button');
+                d.className = 'slide-dot';
+                d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                d.addEventListener('click', () => { go(i); restart(); });
+                dotsWrap.appendChild(d);
+                return d;
+            });
+
+            function go(n) {
+                index = (n + slides.length) % slides.length;
+                track.style.transform = 'translateX(-' + (index * 100) + '%)';
+                slides.forEach((s, i) => s.classList.toggle('active', i === index));
+                dots.forEach((d, i) => d.classList.toggle('active', i === index));
+                counter.textContent = (index + 1) + ' / ' + slides.length;
+            }
+
+            function restartProgress() {
+                progress.classList.remove('run');
+                void progress.offsetWidth;
+                progress.classList.add('run');
+            }
+
+            function start() {
+                stop();
+                restartProgress();
+                timer = setInterval(() => { go(index + 1); restartProgress(); }, DELAY);
+            }
+            function stop() { clearInterval(timer); timer = null; }
+            function restart() { if (!show.classList.contains('paused')) start(); }
+
+            document.getElementById('slidePrev').addEventListener('click', () => { go(index - 1); restart(); });
+            document.getElementById('slideNext').addEventListener('click', () => { go(index + 1); restart(); });
+
+            // Pause while hovering or focused
+            ['mouseenter', 'focusin'].forEach(ev => show.addEventListener(ev, () => { show.classList.add('paused'); stop(); }));
+            ['mouseleave', 'focusout'].forEach(ev => show.addEventListener(ev, () => { show.classList.remove('paused'); start(); }));
+
+            // Keyboard and swipe
+            show.addEventListener('keydown', e => {
+                if (e.key === 'ArrowLeft') { go(index - 1); }
+                if (e.key === 'ArrowRight') { go(index + 1); }
+            });
+            show.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+            show.addEventListener('touchend', e => {
+                if (startX === null) return;
+                const dx = e.changedTouches[0].clientX - startX;
+                if (Math.abs(dx) > 40) { go(index + (dx < 0 ? 1 : -1)); restart(); }
+                startX = null;
+            });
+
+            // Click an image to view it full size
+            slides.forEach(s => s.querySelector('.slide-media').addEventListener('click', () => {
+                const img = s.querySelector('img');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('open');
+                lightbox.setAttribute('aria-hidden', 'false');
+            }));
+            function closeLightbox() { lightbox.classList.remove('open'); lightbox.setAttribute('aria-hidden', 'true'); }
+            lightbox.addEventListener('click', closeLightbox);
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+            go(0);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) start();
+        })();
 
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
